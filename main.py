@@ -2,7 +2,7 @@ from flask import Flask, request
 app = Flask(__name__)
 
 def get_message(host):
-    return {"name": "Hello", "Description": "dear world", "Url": host}
+    return {"name": "Hello", "Description": "dear world in QA", "Url": host}
 
 @app.route('/')
 

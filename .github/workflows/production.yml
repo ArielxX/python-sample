@@ -3,8 +3,6 @@ name: Python application in production
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 permissions:
   contents: read
@@ -46,7 +44,7 @@ jobs:
       - name: Run Docker Image
         uses: appleboy/ssh-action@master
         with:
-          host: 10.10.50.4
-          username: vagrant
+          host: 13.37.252.154
+          username: ec2-user
           key: ${{ secrets.PRIVATE_KEY }}
           script: sudo docker run -d -p 9093:9093 arielxx/devops_exam:latest

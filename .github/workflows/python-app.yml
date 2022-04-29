@@ -44,4 +44,8 @@ jobs:
 
     steps:
       - name: Run Docker Image
-        run: sudo docker run -p 9093 arielxx/devops_exam:latest
+        uses: appleboy/ssh-action@master
+        with:
+          host: 10.10.50.3
+          username: vagrant
+          script: sudo docker run -p 9093:9093 arielxx/devops_exam:latest

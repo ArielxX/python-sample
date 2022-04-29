@@ -2,8 +2,7 @@ name: Python application in QA
 
 on:
   push:
-    branches:
-      - "!main"
+    branches: [develop]
 
 permissions:
   contents: read

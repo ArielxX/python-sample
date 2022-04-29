@@ -1,4 +1,4 @@
-name: Python application
+name: Python application in production
 
 on:
   push:
@@ -46,7 +46,7 @@ jobs:
       - name: Run Docker Image
         uses: appleboy/ssh-action@master
         with:
-          host: 10.10.50.3
+          host: 10.10.50.4
           username: vagrant
           key: ${{ secrets.PRIVATE_KEY }}
           script: sudo docker run -d -p 9093:9093 arielxx/devops_exam:latest

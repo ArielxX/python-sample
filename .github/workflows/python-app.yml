@@ -48,4 +48,5 @@ jobs:
         with:
           host: 10.10.50.3
           username: vagrant
+          key: ${{ secrets.PRIVATE_KEY }}
           script: sudo docker run -p 9093:9093 arielxx/devops_exam:latest

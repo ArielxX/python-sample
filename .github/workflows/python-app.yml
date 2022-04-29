@@ -28,12 +28,20 @@ jobs:
       - name: Test with pytest
         run: |
           pytest
-          
+
       - name: Build the Docker image
         run: docker build . --tag arielxx/devops_exam:latest
 
       - name: Docker login}}
-        run: docker login --username arielxx --password ${{ secrets.DOCKER_PASSWORD}} 
+        run: docker login --username arielxx --password ${{ secrets.DOCKER_PASSWORD}}
 
       - name: Docker push
         run: docker push arielxx/devops_exam:latest
+
+  deploy:
+    needs: build
+    runs-on: self-hosted
+
+    steps:
+      - name: Run Docker Image
+        run: sudo docker run -p 9093 arielxx/devops_exam:latest
